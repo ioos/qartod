@@ -1,0 +1,7 @@
+IOOS QARTOD Resources
+=====================
+
+Presentations
+-------------
+
+- `QARTOD in Practice <https://drive.google.com/open?id=0BwGScp7mjYjyNGVRUG5ZTTNPdUU>`_

@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ioos_qartod.qc_tests.qc &mdash; qartod 0.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="qartod 0.0.2 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ioos_qartod.qc_tests.qc">
+<span id="ioos-qartod-qc-tests-qc"></span><h1>ioos_qartod.qc_tests.qc<a class="headerlink" href="#module-ioos_qartod.qc_tests.qc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ioos_qartod.qc_tests.qc.QCFlags">
+<em class="property">class </em><code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">QCFlags</code><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#QCFlags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.QCFlags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary flags for QARTOD.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.add_qartod_ident">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">add_qartod_ident</code><span class="sig-paren">(</span><em>qartod_id</em>, <em>qartod_test_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#add_qartod_ident"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.add_qartod_ident" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds attributes to the QARTOD functions corresponding to database fields.
+Mostly for internal use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>qartod_id</strong> &#8211; The QARTOD test identifier, as represented by an integer</li>
+<li><strong>qartod_test_name</strong> &#8211; The test name as stored in the database.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.attenuated_signal_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">attenuated_signal_check</code><span class="sig-paren">(</span><em>arr</em>, <em>times</em>, <em>min_var_warn</em>, <em>min_var_fail</em>, <em>time_range=(None</em>, <em>None)</em>, <em>check_type='std'</em>, <em>prev_qc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#attenuated_signal_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.attenuated_signal_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for near-flat-line conditions where the range of values (max-min) or
+standard deviation are below minimum thresholds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arr</strong> &#8211; The input array of observed values</li>
+<li><strong>time</strong> &#8211; An array of timestamps corresponding to the observed values</li>
+<li><strong>min_var_warn</strong> &#8211; range or standard deviation value prior to flagging values as suspect</li>
+<li><strong>min_var_fail</strong> &#8211; range or standard deviation value prior to flagging values as bad</li>
+<li><strong>time_range</strong> &#8211; a 2-tuple indicating the range of times to run the test over</li>
+<li><strong>check_type</strong> &#8211; A string of either &#8216;std&#8217; for standard devation or &#8216;range&#8217; for max - min</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.climatology_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">climatology_check</code><span class="sig-paren">(</span><em>time_series</em>, <em>clim_table</em>, <em>group_function</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#climatology_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.climatology_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a pandas time series, a dict of 2-tuples with (low, high) thresholds
+as values, and a grouping function to group the time series into bins which
+correspond to the climatology lookup table.  Flags data within the
+threshold as good data and data lying outside of it as bad.  Data for which
+climatology values do not exist (i.e. no entry to look up in the dict) will
+be flagged as Unknown/not evaluated.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.flat_line_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">flat_line_check</code><span class="sig-paren">(</span><em>arr</em>, <em>low_reps</em>, <em>high_reps</em>, <em>eps</em>, <em>prev_qc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#flat_line_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.flat_line_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for repeated consecutively repeated values within a tolerance eps.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arr</strong> &#8211; An array of observed data</li>
+<li><strong>low_reps</strong> &#8211; number of repetitions prior to data being flagged suspect.</li>
+<li><strong>high_reps</strong> &#8211; number of repetitions prior to being flagged bad.</li>
+<li><strong>eps</strong> &#8211; a floating point number indicated the bounds within which the absolute
+difference of the previous and current measurement will be considered a repeated vlaue.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.location_set_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">location_set_check</code><span class="sig-paren">(</span><em>lon, lat, bbox_arr=[[-180, -90], [180, 90]], range_max=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#location_set_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.location_set_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that longitude and latitude are within reasonable bounds defaulting
+to lon = [-180, 180] and lat = [-90, 90].  Optionally, check for a maximum
+range parameter in great circle distance defaulting to meters which can
+also use a unit from the quantities library.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lon</strong> &#8211; Longitude expressed as a floating point value</li>
+<li><strong>lat</strong> &#8211; Latitude expressed as a floating point value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Bbox_arr:</th><td class="field-body"><p class="first">A 2x2 array expressed in (lon, lat) pairs</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range_max:</th><td class="field-body"><p class="first last">Maximum range expressed in terms of geodesic curve distance.  Defaults to units of meters</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.qc_compare">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">qc_compare</code><span class="sig-paren">(</span><em>vectors</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#qc_compare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.qc_compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an array of flags that represent the aggregate of all the vectors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vectors</strong> &#8211; An array of arrays of flags of uniform length</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An array of aggregated flag data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.range_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">range_check</code><span class="sig-paren">(</span><em>arr</em>, <em>sensor_span</em>, <em>user_span=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#range_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.range_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a 2-tuple of sensor minimum/maximum values, flag data outside of
+range as bad data.  Optionally also flag data which falls outside of a user
+defined range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arr</strong> &#8211; An array of data</li>
+<li><strong>sensor_span</strong> &#8211; A 2-tuple consisting of the sensor limits.  Data
+exceeding this threshold will be flagged as bad</li>
+<li><strong>user_span</strong> &#8211; An optional 2-tuple consisting of the expected data bounds. Data outside of these bounds but within sensor span will
+be flagged as suspect.  If the parameter is not present or is None, then onlyh the sensor_span will be considered and no data can be flagged as suspect.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.rate_of_change_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">rate_of_change_check</code><span class="sig-paren">(</span><em>times</em>, <em>arr</em>, <em>thresh_val</em>, <em>prev_qc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#rate_of_change_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.rate_of_change_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the first order difference of a series of values to see if
+there are any values exceeding a threshold.  These are then marked as
+suspect.  It is up to the test operator to determine an appropriate
+threshold value for the absolute difference not to exceed.  Threshold may
+be expressed as a python quantities unit.  For example:
+<code class="docutils literal"><span class="pre">import</span> <span class="pre">quantities</span> <span class="pre">as</span> <span class="pre">pq</span></code></p>
+<blockquote>
+<div># more code ...
+# threshold of 2.5 per hour
+threshold = 2.5 / pq.hour
+# run the test with the new threshold
+results = rate_of_change_check(times, arr, threshold, old_qc)``</div></blockquote>
+<p>Defaults to a rate expressed in terms of seconds if not specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>times</strong> &#8211; An array of times</li>
+<li><strong>arr</strong> &#8211; An array of observed values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Thresh_val:</th><td class="field-body"><p class="first last">Either a float value representing a rate of change over time
+or a quantities object represneting a value&#8217;s rate of change over time</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.set_prev_qc">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">set_prev_qc</code><span class="sig-paren">(</span><em>flag_arr</em>, <em>prev_qc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#set_prev_qc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.set_prev_qc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes previous QC flags and applies them to the start of the array
+where the flag values are not unknown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>flag_arr</strong> &#8211; An array of flag values</li>
+<li><strong>prev_qc</strong> &#8211; An array of previous QC values corresponding to the start
+postition of flag_arr</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.spike_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">spike_check</code><span class="sig-paren">(</span><em>arr</em>, <em>low_thresh</em>, <em>high_thresh</em>, <em>prev_qc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#spike_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.spike_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if there is a spike at data point n-1 by subtracting
+the midpoint of n and n-2 and taking the absolute value of this
+quantity, seeing if it exceeds a a low or high threshold.
+Values which do not exceed either threshold are flagged good,
+values which exceed the low threshold are flagged suspect,
+and values which exceed the high threshold are flagged bad.</p>
+<p>The flag is set at point n-1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arr</strong> &#8211; The input array of values</li>
+<li><strong>low_thresh</strong> &#8211; The low value threshold</li>
+<li><strong>high_threshold</strong> &#8211; The high threshold value</li>
+<li><strong>prev_qc</strong> &#8211; An array of any previous QC values which were applied.  The first element is assumed to correspond to the position of the first element of arr</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ioos_qartod.qc_tests.qc.time_series_flat_line_check">
+<code class="descclassname">ioos_qartod.qc_tests.qc.</code><code class="descname">time_series_flat_line_check</code><span class="sig-paren">(</span><em>arr</em>, <em>low_reps=3</em>, <em>high_reps=5</em>, <em>eps=None</em>, <em>prev_qc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ioos_qartod/qc_tests/qc.html#time_series_flat_line_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ioos_qartod.qc_tests.qc.time_series_flat_line_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for invariate observations and can be applied to all bulk wave
+parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arr</strong> &#8211; An array of observed data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/qc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Luke Campbell.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/code/qc.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

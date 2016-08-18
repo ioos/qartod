@@ -1,3 +1,0 @@
-include *.rst
-include *.txt
-recursive-include ioos_qartod *.py
