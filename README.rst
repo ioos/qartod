@@ -1,3 +1,5 @@
+**Library has been archived; new projects wishing to use QARTOD and other QC algorithms should use https://github.com/ioos/ioos_qc instead.**
+
 .. image:: https://travis-ci.org/ioos/qartod.svg?branch=master
    :target: https://travis-ci.org/ioos/qartod
    :alt: build_status
